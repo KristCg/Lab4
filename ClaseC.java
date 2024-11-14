@@ -10,6 +10,7 @@ public class ClaseC implements Sistema {
     private String nivel_humedad;
     private float indicador_humedad;
 
+    // Estados iniciales de la claseC
     public ClaseC() {
         this.estado = false;
         this.temperatura = 20;
@@ -23,65 +24,67 @@ public class ClaseC implements Sistema {
         this.indicador_humedad = 50.0f;
     }
 
+    //Metodos generales de la interfaz 
+    
+    // Opcion de sistema encendido
     @Override
     public void encender() {
         estado = true;
-        System.out.println("Sistema encendido.");
     }
-
+    // Opcion de sistema apagado, si esta activo no se permiten cambios
     @Override
     public void apagar() {
         estado = false;
-        System.out.println("Sistema apagado.");
     }
-
+    // Ajuste de temperatura con incremento de grado en grado
     @Override
-    public void ajustarTemperatura(int incremento) {
+    public boolean ajustarTemperatura(int incremento) {
         if (estado) {
             temperatura += incremento;
-            System.out.println("Temperatura ajustada a: " + temperatura + "°C");
+            return true;
         } else {
-            System.out.println("El sistema está apagado.");
+            return false;
         }
     }
-
+    // Opcion que activa el modo Automatico de ajuste de temperatura
     @Override
-    public void activarModoAutomatico() {
+    public boolean activarModoAutomatico() {
         if (estado) {
             modoA = true;
-            System.out.println("Modo automático activado.");
+            return true;
         } else {
-            System.out.println("El sistema está apagado.");
+            return false;
         }
     }
 
+    //Opcion de la configuracion del ajuste de distribucion del aire 
     @Override
-    public void configurarDistribucionAire(String distribucion) {
+    public boolean configurarDistribucionAire(String distribucion) {
         if (estado) {
             this.distribucion = distribucion;
-            System.out.println("Distribución de aire configurada a: " + distribucion);
+            return true;            
         } else {
-            System.out.println("El sistema está apagado.");
+            return false;
         }
     }
-
+    //Opciones para activar y desactivar el desempañador de vidrios 
     @Override
-    public void activarDesempañador() {
+    public boolean activarDesempañador() {
         if (estado) {
             desempañador = true;
-            System.out.println("Desempañador activado.");
+            return true;
         } else {
-            System.out.println("El sistema está apagado.");
+            return false;
         }
     }
 
     @Override
-    public void desactivarDesempañador() {
+    public boolean desactivarDesempañador() {
         if (estado) {
             desempañador = false;
-            System.out.println("Desempañador desactivado.");
+            return true;
         } else {
-            System.out.println("El sistema está apagado.");
+            return false;
         }
     }
 
@@ -111,68 +114,73 @@ public class ClaseC implements Sistema {
     }
 
     // Métodos específicos de ClaseC
+
+    //Opcion ajuste del nivel de ventilacion -> bajo, alto, medio (Set y get)
     public String getNivelVentilacion() {
         return nivel_vent;
     }
 
-    public void setNivelVentilacion(String nivel_vent) {
+    public boolean setNivelVentilacion(String nivel_vent) {
         if (estado) {
             this.nivel_vent = nivel_vent;
-            System.out.println("Nivel de ventilación ajustado a: " + nivel_vent);
+            return true;
         } else {
-            System.out.println("El sistema está apagado.");
+            return false;
         }
     }
-
+    // Opción seleccion de la zona de ventilacion (Set y get)
     public String getZonaVentilacion() {
         return zona_vent;
     }
 
-    public void setZonaVentilacion(String zona_vent) {
+    public boolean setZonaVentilacion(String zona_vent) {
         if (estado) {
             this.zona_vent = zona_vent;
-            System.out.println("Zona de ventilación configurada a: " + zona_vent);
+            return true;
         } else {
-            System.out.println("El sistema está apagado.");
+            return false;
         }
     }
-
+    // Opcion modo silencioso (Set y get)
     public boolean isModoSilencioso() {
         return modoS;
     }
 
-    public void activarModoSilencioso() {
+    public boolean activarModoSilencioso() {
         if (estado) {
             modoS = true;
-            System.out.println("Modo silencioso activado.");
+            return true;
         } else {
-            System.out.println("El sistema está apagado.");
+            return false;
         }
     }
 
+    // Opcion justar nivel de Humedad (Set y get)
     public String getNivelHumedad() {
         return nivel_humedad;
     }
 
-    public void setNivelHumedad(String nivel_humedad) {
+    
+    public boolean setNivelHumedad(String nivel_humedad) {
         if (estado) {
             this.nivel_humedad = nivel_humedad;
-            System.out.println("Nivel de humedad ajustado a: " + nivel_humedad);
+            return true;
         } else {
-            System.out.println("El sistema está apagado.");
+            return false;
         }
     }
 
+    //Opcion del indicador de Humedad (Set y get)
     public float getIndicadorHumedad() {
         return indicador_humedad;
     }
 
-    public void actualizarIndicadorHumedad(float indicador_humedad) {
+    public boolean actualizarIndicadorHumedad(float indicador_humedad) {
         if (estado) {
             this.indicador_humedad = indicador_humedad;
-            System.out.println("Indicador de humedad actualizado a: " + indicador_humedad + "%");
+            return true;
         } else {
-            System.out.println("El sistema está apagado.");
+            return true;
         }
     }
 
