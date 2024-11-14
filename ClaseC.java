@@ -1,3 +1,7 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class ClaseC implements Sistema {
     private boolean estado;
     private int temperatura;
@@ -111,6 +115,26 @@ public class ClaseC implements Sistema {
     @Override
     public boolean isDesempañadorActivo() {
         return desempañador;
+    }
+
+    // Metodo de la opcion para mostrar el historial de mantenimiento
+    @Override
+    public void mostrarHistorialMantenimiento() throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader("data/Mantenimiento.csv"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        }
+    }
+
+    // Metodo de la opcion para programar un mantenimiento
+    @Override
+    public void programarMantenimiento(String fecha, String tipoMantenimiento) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("data/Mantenimiento.csv", true))) {
+            writer.write(fecha + "," + tipoMantenimiento);
+            writer.newLine();
+        }
     }
 
     // Métodos específicos de ClaseC
