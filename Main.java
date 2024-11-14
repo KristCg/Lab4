@@ -39,7 +39,9 @@ public class Main {
                     break;
 
                 case 3:
-
+                    System.out.println("Ingrese cuanto desea incrementar la temperatura");
+                    int incremento = scanner.nextInt();
+                    clase.ajustarTemperatura(incremento);
                     break;
 
                 case 4:
@@ -106,6 +108,6 @@ public class Main {
             scanner.nextLine();
 
         }
-
+        scanner.close();
     }
 }
