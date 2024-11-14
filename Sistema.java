@@ -3,15 +3,15 @@ public interface Sistema {
 
     void apagar();
 
-    void ajustarTemperatura(int incremento);
+    boolean ajustarTemperatura(int incremento);
 
-    void activarModoAutomatico();
+    boolean activarModoAutomatico();
 
-    void configurarDistribucionAire(String distribucion);
+    boolean configurarDistribucionAire(String distribucion);
 
-    void activarDesempañador();
+    boolean activarDesempañador();
 
-    void desactivarDesempañador();
+    boolean desactivarDesempañador();
 
     boolean isEstado();
 
