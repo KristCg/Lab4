@@ -21,23 +21,25 @@ public class ClaseC implements Sistema {
         this.modoS = false;
         this.nivel_humedad = "medio";
         this.indicador_humedad = 50.0f;
-
     }
 
     @Override
     public void encender() {
         estado = true;
+        System.out.println("Sistema encendido.");
     }
 
     @Override
     public void apagar() {
         estado = false;
+        System.out.println("Sistema apagado.");
     }
 
     @Override
     public void ajustarTemperatura(int incremento) {
         if (estado) {
             temperatura += incremento;
+            System.out.println("Temperatura ajustada a: " + temperatura + "°C");
         } else {
             System.out.println("El sistema está apagado.");
         }
@@ -46,7 +48,8 @@ public class ClaseC implements Sistema {
     @Override
     public void activarModoAutomatico() {
         if (estado) {
-            boolean modoAutomatico = true;
+            modoA = true;
+            System.out.println("Modo automático activado.");
         } else {
             System.out.println("El sistema está apagado.");
         }
@@ -55,7 +58,8 @@ public class ClaseC implements Sistema {
     @Override
     public void configurarDistribucionAire(String distribucion) {
         if (estado) {
-            distribucionAire = distribucion;
+            this.distribucion = distribucion;
+            System.out.println("Distribución de aire configurada a: " + distribucion);
         } else {
             System.out.println("El sistema está apagado.");
         }
@@ -65,6 +69,7 @@ public class ClaseC implements Sistema {
     public void activarDesempañador() {
         if (estado) {
             desempañador = true;
+            System.out.println("Desempañador activado.");
         } else {
             System.out.println("El sistema está apagado.");
         }
@@ -74,6 +79,7 @@ public class ClaseC implements Sistema {
     public void desactivarDesempañador() {
         if (estado) {
             desempañador = false;
+            System.out.println("Desempañador desactivado.");
         } else {
             System.out.println("El sistema está apagado.");
         }
@@ -112,6 +118,7 @@ public class ClaseC implements Sistema {
     public void setNivelVentilacion(String nivel_vent) {
         if (estado) {
             this.nivel_vent = nivel_vent;
+            System.out.println("Nivel de ventilación ajustado a: " + nivel_vent);
         } else {
             System.out.println("El sistema está apagado.");
         }
@@ -124,6 +131,7 @@ public class ClaseC implements Sistema {
     public void setZonaVentilacion(String zona_vent) {
         if (estado) {
             this.zona_vent = zona_vent;
+            System.out.println("Zona de ventilación configurada a: " + zona_vent);
         } else {
             System.out.println("El sistema está apagado.");
         }
@@ -136,8 +144,9 @@ public class ClaseC implements Sistema {
     public void activarModoSilencioso() {
         if (estado) {
             modoS = true;
+            System.out.println("Modo silencioso activado.");
         } else {
-            System.out.println("El sistema está apagado");
+            System.out.println("El sistema está apagado.");
         }
     }
 
@@ -148,8 +157,9 @@ public class ClaseC implements Sistema {
     public void setNivelHumedad(String nivel_humedad) {
         if (estado) {
             this.nivel_humedad = nivel_humedad;
+            System.out.println("Nivel de humedad ajustado a: " + nivel_humedad);
         } else {
-            System.out.println("El sistema está apagado");
+            System.out.println("El sistema está apagado.");
         }
     }
 
@@ -160,8 +170,9 @@ public class ClaseC implements Sistema {
     public void actualizarIndicadorHumedad(float indicador_humedad) {
         if (estado) {
             this.indicador_humedad = indicador_humedad;
+            System.out.println("Indicador de humedad actualizado a: " + indicador_humedad + "%");
         } else {
-            System.out.println("El sistema está apagado");
+            System.out.println("El sistema está apagado.");
         }
     }
 }
