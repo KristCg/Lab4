@@ -75,22 +75,35 @@ public class Main {
                     break;
 
                 case 10:
-
+                    clase.activarModoSilencioso();
                     break;
 
                 case 11:
-
+                    System.out.print("Ingrese el nivel de humedad (bajo/medio/alto): ");
+                    String nivelHumedad = scanner.nextLine();
+                    clase.setNivelHumedad(nivelHumedad);
                     break;
 
                 case 12:
+                    System.out.println("Estado del sistema: " + (clase.isEstado() ? "Encendido" : "Apagado"));
+                    System.out.println("Temperatura actual: " + clase.getTemperatura() + "°C");
+                    System.out.println("Modo automático: " + (clase.isModoAutomatico() ? "Activo" : "Inactivo"));
+                    System.out.println("Distribución de aire: " + clase.getDistribucionAire());
+                    System.out.println("Desempañador: " + (clase.isDesempañadorActivo() ? "Activo" : "Inactivo"));
+                    System.out.println("Nivel de ventilación: " + clase.getNivelVentilacion());
+                    System.out.println("Zona de ventilación: " + clase.getZonaVentilacion());
+                    System.out.println("Modo silencioso: " + (clase.isModoSilencioso() ? "Activo" : "Inactivo"));
+                    System.out.println("Nivel de humedad: " + clase.getNivelHumedad());
+                    System.out.println("Indicador de humedad: " + clase.getIndicadorHumedad() + "%");
 
                     break;
 
                 case 13:
-
+                    System.out.println("Saliendo... FELIZ DIA :D");
                     break;
 
                 default:
+                    System.out.println("Ingrese una opcion correcta");
                     break;
             }
 
