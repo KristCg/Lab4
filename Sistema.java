@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public interface Sistema {
     void encender();
 
@@ -22,4 +24,9 @@ public interface Sistema {
     String getDistribucionAire();
 
     boolean isDesempañadorActivo();
+
+    void mostrarHistorialMantenimiento() throws IOException;
+    
+    void programarMantenimiento(String fecha, String tipoMantenimiento) throws IOException;
+
 }
