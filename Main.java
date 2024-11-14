@@ -55,11 +55,11 @@ public class Main {
                     break;
 
                 case 6:
-
+                    clase.activarDesempañador();
                     break;
 
                 case 7:
-
+                    clase.desactivarDesempañador();
                     break;
 
                 case 8:
