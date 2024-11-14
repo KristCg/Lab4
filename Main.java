@@ -45,11 +45,13 @@ public class Main {
                     break;
 
                 case 4:
-
+                    clase.activarModoAutomatico();
                     break;
 
                 case 5:
-
+                    System.out.print("Ingrese la distribución de aire (frontal/pies): ");
+                    String distribucion = scanner.nextLine();
+                    clase.configurarDistribucionAire(distribucion);
                     break;
 
                 case 6:
