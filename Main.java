@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -20,12 +21,14 @@ public class Main {
         System.out.println("10. Activar modo silencioso");
         System.out.println("11. Ajustar nivel de humedad");
         System.out.println("12. Ver estado del sistema");
-        System.out.println("13. Salir");
+        System.out.println("13. Mostrar Historial del mantenimiento");
+        System.out.println("14. Programar Mantenimiento");
+        System.out.println("15. Salir");
 
         op = scanner.nextInt();
         scanner.nextLine();
 
-        while (op != 13) {
+        while (op != 15) {
 
             switch (op) {
                 case 1:
@@ -141,10 +144,35 @@ public class Main {
                     System.out.println("Modo silencioso: " + (clase.isModoSilencioso() ? "Activo" : "Inactivo"));
                     System.out.println("Nivel de humedad: " + clase.getNivelHumedad());
                     System.out.println("Indicador de humedad: " + clase.getIndicadorHumedad() + "%");
+                    break;
+                
+                case 13:
+                    try {
+                        clase.mostrarHistorialMantenimiento();
+                    } catch (IOException e) {
+                        System.out.println("Error al leer el historial de mantenimiento.");
+                    }
+                    break;
+                
+                case 14:
+                if (clase.isEstado()) {
+                    System.out.print("Ingrese la fecha del mantenimiento (dd/mm/aaaa): ");
+                    String fecha = scanner.nextLine();
+                    System.out.print("Ingrese el tipo de mantenimiento: ");
+                    String tipoMantenimiento = scanner.nextLine();
 
+                    try {
+                        clase.programarMantenimiento(fecha, tipoMantenimiento);
+                        System.out.println("Mantenimiento programado exitosamente.");
+                        } catch (IOException e) {
+                            System.out.println("Error al programar el mantenimiento.");
+                        }
+                    } else {
+                        System.out.println("El sistema se encuentra apagado. Opción no disponible.");
+                    }
                     break;
 
-                case 13:
+                case 15:
                     System.out.println("Saliendo... FELIZ DIA :D");
                     break;
 
@@ -167,7 +195,9 @@ public class Main {
             System.out.println("10. Activar modo silencioso");
             System.out.println("11. Ajustar nivel de humedad");
             System.out.println("12. Ver estado del sistema");
-            System.out.println("13. Salir");
+            System.out.println("13. Mostrar historial de mantenimiento");
+            System.out.println("14. Programar mantenimiento");
+            System.out.println("15. Salir");
 
             op = scanner.nextInt();
             scanner.nextLine();
