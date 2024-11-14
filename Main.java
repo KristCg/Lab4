@@ -39,49 +39,95 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.println("Ingrese cuanto desea incrementar la temperatura");
-                    int incremento = scanner.nextInt();
-                    clase.ajustarTemperatura(incremento);
+                    if (clase.isEstado()){
+                        System.out.println("Ingrese el grado al que desea ajustar la temperatura");
+                        int incremento = scanner.nextInt();
+                        clase.ajustarTemperatura(incremento);
+                        System.out.println("Temperatura ajustada a: " + clase.getTemperatura() + "°C");
+                    } else {
+                        System.out.println("El sistema se encuentra apagado. Opcion no disponible");
+                    }
                     break;
 
                 case 4:
-                    clase.activarModoAutomatico();
+                    if(clase.isEstado()){
+                        clase.activarModoAutomatico();
+                        System.out.println("Modo Automatico activado con éxito");
+                    } else {
+                        System.out.println("El sistema se encuentra apagado. Opcion no disponible");
+                    }
+                    
                     break;
 
                 case 5:
-                    System.out.print("Ingrese la distribución de aire (frontal/pies): ");
-                    String distribucion = scanner.nextLine();
-                    clase.configurarDistribucionAire(distribucion);
+                    if(clase.isEstado()){
+                        System.out.print("Ingrese la distribución de aire (frontal/pies): ");
+                        String distribucion = scanner.nextLine();
+                        clase.configurarDistribucionAire(distribucion);
+                        System.out.println("Distribución de aire configurada a: " + clase.getDistribucionAire());
+                    } else {
+                        System.out.println("El sistema se encuentra apagado. Opcion no disponible");
+                    }
                     break;
 
                 case 6:
-                    clase.activarDesempañador();
+                    if(clase.isEstado()){
+                        clase.activarDesempañador();
+                        System.out.println("Desempañador activado.");
+                    } else {
+                        System.out.println("El sistema se encuentra apagado. Opcion no disponible");
+                    }
                     break;
 
                 case 7:
-                    clase.desactivarDesempañador();
+                    if(clase.isEstado()){
+                        clase.desactivarDesempañador();
+                        System.out.println("Desempañador desactivado.");
+                    } else{
+                        System.out.println("El sistema se encuentra apagado. Opcion no disponible");
+                    }
                     break;
 
                 case 8:
-                    System.out.print("Ingrese el nivel de ventilación (bajo/medio/alto): ");
-                    String nivelVent = scanner.nextLine();
-                    clase.setNivelVentilacion(nivelVent);
+                    if(clase.isEstado()){
+                        System.out.print("Ingrese el nivel de ventilación (bajo/medio/alto): ");
+                        String nivelVent = scanner.nextLine();
+                        clase.setNivelVentilacion(nivelVent);
+                        System.out.println("Nivel de ventilación ajustado a: " + clase.getNivelVentilacion());
+                    } else{
+                        System.out.println("El sistema se encuentra apagado. Opcion no disponible");
+                    }
                     break;
 
                 case 9:
-                    System.out.print("Ingrese la zona de ventilación (parabrisas/pies): ");
-                    String zonaVent = scanner.nextLine();
-                    clase.setZonaVentilacion(zonaVent);
+                    if(clase.isEstado()){
+                        System.out.print("Ingrese la zona de ventilación (parabrisas/pies): ");
+                        String zonaVent = scanner.nextLine();
+                        clase.setZonaVentilacion(zonaVent);
+                        System.out.println("Zona de ventilación configurada a: " + clase.getZonaVentilacion());
+                    } else{
+                        System.out.println("El sistema se encuentra apagado. Opcion no disponible");
+                    }
                     break;
 
                 case 10:
-                    clase.activarModoSilencioso();
+                    if(clase.isEstado()){
+                        clase.activarModoSilencioso();
+                        System.out.println("Modo silencioso activado.");
+                    } else {
+                        System.out.println("El sistema se encuentra apagado. Opcion no disponible");
+                    }
                     break;
 
                 case 11:
-                    System.out.print("Ingrese el nivel de humedad (bajo/medio/alto): ");
-                    String nivelHumedad = scanner.nextLine();
-                    clase.setNivelHumedad(nivelHumedad);
+                    if(clase.isEstado()){
+                        System.out.print("Ingrese el nivel de humedad (bajo/medio/alto): ");
+                        String nivelHumedad = scanner.nextLine();
+                        clase.setNivelHumedad(nivelHumedad);
+                        System.out.println("Nivel de humedad ajustado a: " + clase.getNivelHumedad());
+                    } else {
+                        System.out.println("El sistema se encuentra apagado. Opcion no disponible");
+                    }
                     break;
 
                 case 12:
