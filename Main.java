@@ -63,11 +63,15 @@ public class Main {
                     break;
 
                 case 8:
-
+                    System.out.print("Ingrese el nivel de ventilación (bajo/medio/alto): ");
+                    String nivelVent = scanner.nextLine();
+                    clase.setNivelVentilacion(nivelVent);
                     break;
 
                 case 9:
-
+                    System.out.print("Ingrese la zona de ventilación (parabrisas/pies): ");
+                    String zonaVent = scanner.nextLine();
+                    clase.setZonaVentilacion(zonaVent);
                     break;
 
                 case 10:
