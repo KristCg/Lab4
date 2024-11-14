@@ -175,4 +175,5 @@ public class ClaseC implements Sistema {
             System.out.println("El sistema está apagado.");
         }
     }
+
 }
